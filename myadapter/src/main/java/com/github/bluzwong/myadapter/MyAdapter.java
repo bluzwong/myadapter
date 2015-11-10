@@ -117,7 +117,6 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         int lastInScreen = findLastInScreen();
         int firstInScreen = findFirstInScreen();
         int itemCount = targetAdapter.getItemCount();
-        Log.i("bruce-rec", "lastInScreen" + lastInScreen+" firstInScreen" + firstInScreen + " itemCount" + itemCount);
         if (lastInScreen == -1 && firstInScreen == -1) {
             return true;
         }
