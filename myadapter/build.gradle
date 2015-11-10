@@ -17,8 +17,43 @@ android {
         }
     }
 }
-
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
+    }
+}
 dependencies {
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:recyclerview-v7:23.1.0'
 }
+
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'myadapter'
+
+    publishedGroupId = 'com.github.bluzwong'
+    libraryName = 'myadapter'
+    artifact = 'myadapter'
+
+    libraryDescription = 'myadapter for android'
+
+    siteUrl = 'https://github.com/bluzwong/myadapter'
+    gitUrl = 'https://github.com/bluzwong/myadapter.git'
+
+    libraryVersion = '0.0.1'
+
+    developerId = 'bluzwong'
+    developerName = 'brucewangzhijie'
+    developerEmail = 'brucewangzhijie@163.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

@@ -19,9 +19,19 @@ android {
     }
 }
 
+repositories {
+    jcenter()
+    maven {
+        url 'https://dl.bintray.com/bluzwong/maven'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.0'
-    compile project(':myadapter')
+    compile 'com.android.support:recyclerview-v7:23.1.0'
+
+    compile 'com.github.bluzwong:myadapter:0.0.1@aar'
+    //compile project(':myadapter')
 }

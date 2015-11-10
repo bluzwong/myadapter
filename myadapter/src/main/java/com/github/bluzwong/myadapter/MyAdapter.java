@@ -4,7 +4,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,11 +31,9 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.recyclerView = recyclerView;
         this.targetAdapter = (RecyclerView.Adapter<RecyclerView.ViewHolder>) targetAdapter;
         recyclerView.setAdapter(this);
-        Log.i("bruce-rec", "MyAdapter");
     }
 
     public void setCurrentStatus(int currentStatus) {
-        Log.i("bruce-rec", "setCurrentStatus");
         if (currentStatus < STATUS_DISABLE || currentStatus > STATUS_NORMAL_LOADING) {
             currentStatus = -1;
         }
