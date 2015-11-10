@@ -4,6 +4,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,7 +114,14 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private boolean shouldShowClickInsteadOfLoading() {
         // all items completely shown in screen
-        return findLastInScreen() <= targetAdapter.getItemCount() && findFirstInScreen() == 0;
+        int lastInScreen = findLastInScreen();
+        int firstInScreen = findFirstInScreen();
+        int itemCount = targetAdapter.getItemCount();
+        Log.i("bruce-rec", "lastInScreen" + lastInScreen+" firstInScreen" + firstInScreen + " itemCount" + itemCount);
+        if (lastInScreen == -1 && firstInScreen == -1) {
+            return true;
+        }
+        return lastInScreen <= itemCount && firstInScreen == 0;
     }
 
     private void checkLoadingOrClick() {
