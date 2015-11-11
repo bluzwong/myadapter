@@ -4,7 +4,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter<RecyclerView.ViewHolder> targetAdapter;
-    private static final int myTypeRes = R.layout.item_loading;
+    private static final int myTypeRes = R.layout.item_loading_myadapter;
     private MyHolder myHolder;
 
     private static final int STATUS_NORMAL = 0, STATUS_IS_LOADING = 1,
@@ -65,11 +64,13 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case STATUS_NORMAL_LOADING: {
                 myHolder.getProgressBarLoading().setVisibility(View.VISIBLE);
                 myHolder.getTvClick().setVisibility(View.GONE);
+                myHolder.getViewDisable().setVisibility(View.GONE);
                 break;
             }
             case STATUS_SHOW_CLICK: {
                 myHolder.getProgressBarLoading().setVisibility(View.GONE);
                 myHolder.getTvClick().setVisibility(View.VISIBLE);
+                myHolder.getViewDisable().setVisibility(View.GONE);
                 break;
             }
             case STATUS_NO_MORE:
@@ -77,6 +78,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             case STATUS_DISABLE: {
                 myHolder.getProgressBarLoading().setVisibility(View.GONE);
                 myHolder.getTvClick().setVisibility(View.GONE);
+                myHolder.getViewDisable().setVisibility(View.VISIBLE);
                 break;
             }
             default:
@@ -184,6 +186,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     }
                 }
             });
+            syncStatus();
             return myHolder;
         }
         return targetAdapter.onCreateViewHolder(parent, viewType);

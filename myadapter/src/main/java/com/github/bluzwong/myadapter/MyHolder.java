@@ -12,11 +12,13 @@ public class MyHolder extends RecyclerView.ViewHolder {
 
     private ProgressBar progressBarLoading;
     private TextView tvClick;
+    private View viewDisable;
 
     public MyHolder(View itemView) {
         super(itemView);
-        progressBarLoading = (ProgressBar) itemView.findViewById(R.id.pb_loading);
-        tvClick = (TextView) itemView.findViewById(R.id.tv_click_to_load_more);
+        progressBarLoading = (ProgressBar) itemView.findViewById(R.id.pb_loading_myadapter);
+        tvClick = (TextView) itemView.findViewById(R.id.tv_click_to_load_more_myadapter);
+        viewDisable = itemView.findViewById(R.id.view_diasble_myadapter);
     }
 
     public ProgressBar getProgressBarLoading() {
@@ -25,5 +27,9 @@ public class MyHolder extends RecyclerView.ViewHolder {
 
     public TextView getTvClick() {
         return tvClick;
+    }
+
+    public View getViewDisable() {
+        return viewDisable;
     }
 }

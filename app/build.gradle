@@ -21,9 +21,9 @@ android {
 
 repositories {
     jcenter()
-    maven {
+   /* maven {
         url 'https://dl.bintray.com/bluzwong/maven'
-    }
+    }*/
     maven {
         url "https://jitpack.io"
     }
